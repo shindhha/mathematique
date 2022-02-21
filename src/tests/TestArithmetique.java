@@ -28,22 +28,22 @@ public class TestArithmetique {
     private static void TestPgcd() {
 
         
-        final int[][] JEU_DE_TEST = { 
+        final int[][] JEU_DE_TEST = {
 
-            {   64, -24 },
-            {  128, 128 },
-            {   11,   7 },
-            {    0,   0 },
-            {  -54, -93 },
-            {  -24,  64 },
-            {17894,12345},
-            {  -56,   0 },
-            {    0,  73 }
+            {          0,          0 },
+            {        -56,          0 },
+            {          0,         73 },
+            {        128,        128 },
+            {        -54,        -93 },
+            {         64,        -24 },
+            {         11,          7 },
+            {      17894,      12345 },
+            { 1000000000,-2000000000 }
             
         };
 
         final int[] RESULTATS_ATTENDU = 
-        { -8, 128, 1, 0, -3, -8, 1, 0, 0};
+        {0, 0, 0, -8, 128, -3, 1, -8, 77, 1, 1000000000};
             
         
 
@@ -65,21 +65,22 @@ public class TestArithmetique {
     private static void TestPpcm() {
 
         
-        final int[][] JEU_DE_TEST = { 
+        final int[][] JEU_DE_TEST = {
 
-            {  64, -24  },
-            { 128, 128  },
-            {  11,   7  },
-            {   0,   0  },
-            { -70, -56  },
-            {17894,12345},
-            { -56,   0  },
-            {   0,   73 }
+            {          0,          0 },
+            {        -56,          0 },
+            {          0,         73 },
+            {        128,        128 },
+            {        -70,        -56 },
+            {         64,        -24 },
+            {         11,          7 },
+            {      17894,      12345 },
+            { 1000000000,-2000000000 }
             
         };
 
         final int[] RESULTATS_ATTENDU = 
-        { 192, 128, 77, 0, -280, 220901430, 0, 0};
+        {0, 0, 0, 128, -280, 192, 77, 220901430, -2000000000};
             
         
 
@@ -97,10 +98,10 @@ public class TestArithmetique {
 
     }
     /**
-     * Tests pour la méthode Puissance
+     * Tests pour la methode Puissance
      * 
      */
-    public static void TestRacine() {
+    private static void TestRacine() {
         
         final double[] JEU_DE_TEST = 
         { 4,-52, 800, 780.12, 0.1 };
@@ -128,7 +129,7 @@ public class TestArithmetique {
     /**
      * Methode de test de l'outil pgcd de la classe "Arithmetique"
      *
-     * @param args non utilisé
+     * @param args non utilis�
      */
     public static void main(String[] args) {
 

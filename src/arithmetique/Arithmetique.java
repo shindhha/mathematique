@@ -72,7 +72,7 @@ public class Arithmetique {
         if (a == 0 || b == 0) {
             return 0;
         }
-        return a*b/pgcd(a,b);
+        return (a / pgcd(a,b)) * b;
     }
 
     /**
@@ -154,7 +154,6 @@ public class Arithmetique {
      */
     public static double IEEEToDouble(String IEEE) {
 
-
         char[] IEEEChar;
         double mantisse;
         int exposant;
@@ -181,6 +180,4 @@ public class Arithmetique {
 
         return mantisse;
     }
-
-
 }
