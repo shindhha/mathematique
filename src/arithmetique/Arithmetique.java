@@ -4,7 +4,7 @@
  * Pas de droit d'auteur ni de copyright .
  */
 
-package arithmetique;
+package src.arithmetique;
 
 /**
  * Différents outils d'arithmétique comme :
@@ -91,11 +91,23 @@ public class Arithmetique {
      */
     //TODO Faire la méthode de calcul de puissance
     public static double Puissance(double a , double b) {
-
+        if ( b == 0 ) {
+            return 1;
+        }
+        boolean puissanceNegative = b < 0;
+        b = Math.abs(b);
+        while ( b % 2 == 0 ) {
+            a *= a;
+            b /= 2;
+        }
         double result = 1;
         for (int compteur = 0; compteur < b;compteur++ ) {
 
             result *= a;
+        }
+
+        if (puissanceNegative) {
+            result = 1 / result;
         }
 
         return result;
@@ -111,7 +123,7 @@ public class Arithmetique {
      *   <li> </li>
      * </ul>
      * @param x nombre dont on veut la racine 
-     * @return une racine approximative de 'a'
+     * @return une racine approximative de 'a' 
      */
     public static double Racine(double x) {
 
@@ -129,12 +141,13 @@ public class Arithmetique {
         }
         racine = racineProcheDepart;
 
-        /* Methode de newton qui nous dit que x1 = x0  -f(x0)/f'(x0) */
+        /* Methode de newton qui nous dit que x1 = x0 -f(x0)/f'(x0) */
         for (int nbIteration = 0; 
                  nbIteration < 10; nbIteration++) {
 
-            racine = racine - (Puissance(racine,2) - x)/(2*racine);
+            racine = racine - (Puissance(racine,2) - x) / (2*racine);
         }
+
         
         return racine;
     }
