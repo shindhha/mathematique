@@ -4,13 +4,14 @@
  * Pas de droit d'auteur ni de copyright .
  */
 
-package src.tests;
+package tests;
 
-import static src.arithmetique.Arithmetique.pgcd;
-import static src.arithmetique.Arithmetique.ppcm;
-import static src.arithmetique.Arithmetique.Puissance;
-import static src.arithmetique.Arithmetique.Racine;
-import static src.arithmetique.Arithmetique.IEEEToDouble;
+import static arithmetique.Arithmetique.pgcd;
+import static arithmetique.Arithmetique.ppcm;
+import static arithmetique.Arithmetique.Puissance;
+import static arithmetique.Arithmetique.Racine;
+import static arithmetique.Arithmetique.IEEEToDouble;
+import static tests.Outillage.AssurerEgalite;
 
 /**
  * Liste de tests pour les mÃ©thodes de la classe Arithmetique
@@ -82,7 +83,7 @@ public class TestArithmetique {
         };
 
         final int[] RESULTATS_ATTENDU = 
-        {0, 0, 0, -8, 128, -3, 1, -8, 77, 1, 1000000000};
+        {0, 0, 0, 128,-3 ,-8 , 1, 1, 1000000000};
             
         
 
@@ -176,9 +177,15 @@ public class TestArithmetique {
      * @param args non utilisé
      */
     public static void main(String[] args) {
-
-        TestPuissance();
         
+        boolean ok;
+        
+        ok = AssurerEgalite(1 , Puissance(0,0) , 1e45);
+        ok &= AssurerEgalite(1 , Puissance(-54,3) , 1e45);
     }
+
+    /** TODO commenter le rôle de cette méthode (SRP)
+     * 
+     */
 
 }

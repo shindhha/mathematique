@@ -4,7 +4,7 @@
  * Pas de droit d'auteur ni de copyright .
  */
 
-package src.arithmetique;
+package arithmetique;
 
 /**
  * Diff√©rents outils d'arithm√©tique comme :
@@ -91,24 +91,38 @@ public class Arithmetique {
      */
     //TODO Faire la m√©thode de calcul de puissance
     public static double Puissance(double a , double b) {
-        if ( b == 0 ) {
-            return 1;
+        
+        if (b < 0) {
+            throw new IllegalArgumentException("Erreur ! puissance nÈgative non autorisÈ !");
         }
         boolean puissanceNegative = b < 0;
         b = Math.abs(b);
-        while ( b % 2 == 0 ) {
-            a *= a;
-            b /= 2;
+        
+        if ( b == 0 ) {
+            return 1;
         }
         double result = 1;
+        while ( n != 1 ) {
+            
+            if (n % 2 == 0) {
+                a *= a;
+                b /= 2;
+            } else {
+                result *= a;
+                b--;
+            }
+            
+        }
+        
+        
         for (int compteur = 0; compteur < b;compteur++ ) {
 
             result *= a;
         }
 
-        if (puissanceNegative) {
-            result = 1 / result;
-        }
+//        if (puissanceNegative) {
+//            result = 1 / result;
+//        }
 
         return result;
     }
