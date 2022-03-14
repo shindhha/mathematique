@@ -8,8 +8,6 @@ package tests;
 
 import static arithmetique.Arithmetique.pgcd;
 import static arithmetique.Arithmetique.ppcm;
-import static arithmetique.Arithmetique.Puissance;
-import static arithmetique.Arithmetique.Racine;
 import static arithmetique.Arithmetique.IEEEToDouble;
 import static tests.Outillage.AssurerEgalite;
 
@@ -25,46 +23,7 @@ public class TestArithmetique {
     private TestArithmetique() {
     }
     
-    private static void TestPuissance() {
 
-        final int PRECISION = 1000;
-        double puissance;
-
-        final double[][] JEU_DE_TEST = {
-
-            {          0,          0 },
-            {        -56,          0 },
-            {          0,         73 },
-            {        128,          3 },
-            {        -54,          3 },
-            {     64.128,          3 },
-            {          3,         -3 }
-            
-            
-        };
-
-        final double[] RESULTATS_ATTENDU = 
-        {1, 1, 0, 2097152, -157464, 263720.011, 0.037};
-
-        for (int noTest = 0; noTest < JEU_DE_TEST.length; noTest++) {
-
-            puissance = Puissance( JEU_DE_TEST[noTest][0] , JEU_DE_TEST[noTest][1] );
-            puissance *= PRECISION;
-            puissance = (int) puissance;
-            puissance /= PRECISION;
-
-            if (  puissance
-                == RESULTATS_ATTENDU[noTest] ) {
-
-                System.out.println("Reussite du test puissance no " + ( noTest + 1 ) );
-            } else {
-
-                System.out.println("Echec du test puissance no " + ( noTest + 1 ) );
-            }
-        }
-
-
-    }
     private static void TestPgcd() {
 
         
@@ -137,39 +96,7 @@ public class TestArithmetique {
         }
 
     }
-    /**
-     * Tests pour la methode Racine
-     * 
-     */
-    private static void TestRacine() {
 
-        final int PRECISION = 1000;
-        double racine;
-
-        final double[] JEU_DE_TEST = 
-        { 4,-52, 800, 780.12, 0.1 };
-        
-
-        final double[] RESULTATS_ATTENDU = 
-        { 2, -1, 28.284, 27.930, 0.316 };
-            
-        
-        for (int noTest = 0; noTest < JEU_DE_TEST.length; noTest++) {
-
-            racine = Racine( JEU_DE_TEST[noTest] );
-            racine *= PRECISION;
-            racine = (int) racine;
-            racine /= PRECISION;
-
-            if ( racine == RESULTATS_ATTENDU[noTest] ) {
-
-                System.out.println("Reussite du test Racine no " + ( noTest + 1 ) );
-            } else {
-
-                System.out.println("Echec du test Racine no " + ( noTest + 1 ) );
-            }
-        }
-    }
     // TODO Ã©crire les tests pour la mÃ©thode IEEEtoDouble
     /**
      * Methode de test de l'outil pgcd de la classe "Arithmetique"
@@ -180,12 +107,9 @@ public class TestArithmetique {
         
         boolean ok;
         
-        ok = AssurerEgalite(1 , Puissance(0,0) , 1e45);
-        ok &= AssurerEgalite(1 , Puissance(-54,3) , 1e45);
+        
     }
 
-    /** TODO commenter le rôle de cette méthode (SRP)
-     * 
-     */
+    
 
 }
