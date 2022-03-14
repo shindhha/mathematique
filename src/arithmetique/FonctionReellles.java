@@ -55,9 +55,9 @@ public class FonctionReellles {
             result *= a;
         }
 
-//        if (puissanceNegative) {
-//            result = 1 / result;
-//        }
+        if (puissanceNegative) {
+            result = 1 / result;
+        }
 
         return result;
     }

@@ -4,51 +4,29 @@
  */
 package tests;
 import static arithmetique.FonctionReellles.*;
+import static tests.Outillage.AssurerEgalite;
 /** TODO commenter la responsabilité de cette classe
  * @author guillaume.medard
  *
  */
 public class TestsFonctionReelles {
     
+    private TestsFonctionReelles() {
+    }
+    
     private static void TestPuissance() {
-
-        final int PRECISION = 1000;
-        double puissance;
-
-        final double[][] JEU_DE_TEST = {
-
-            {          0.0,          0 },
-            {        -56.0,          0 },
-            {          0,         73 },
-            {        128,          3 },
-            {        -54,          3 },
-            {     64.128,          3 },
-            {          3,         -3 }
-            
-            
-        };
-
-        final double[] RESULTATS_ATTENDU = 
-        {1, 1, 0, 2097152, -157464, 263720.011, 0.037};
-
-        for (int noTest = 0; noTest < JEU_DE_TEST.length; noTest++) {
-
-            puissance = Puissance( JEU_DE_TEST[noTest][0] , JEU_DE_TEST[noTest][1] );
-            puissance *= PRECISION;
-            puissance = (int) puissance;
-            puissance /= PRECISION;
-
-            if (  puissance
-                == RESULTATS_ATTENDU[noTest] ) {
-
-                System.out.println("Reussite du test puissance no " + ( noTest + 1 ) );
-            } else {
-
-                System.out.println("Echec du test puissance no " + ( noTest + 1 ) );
-            }
-        }
-
-
+        
+        boolean ok;
+        final double PRECISION = 0;
+        
+        ok = AssurerEgalite(Math.pow(0, 0), Puissance(0.0,0), PRECISION);
+        ok &= AssurerEgalite(Math.pow(-56.0,0), Puissance(-56.0,0), PRECISION);
+        ok &= AssurerEgalite(Math.pow(0, 0), Puissance(0.0,0), PRECISION);
+        ok &= AssurerEgalite(Math.pow(128.0,3), Puissance(128.0,3), PRECISION);
+        ok &= AssurerEgalite(Math.pow(-54,3), Puissance(-54,3), PRECISION);
+        ok &= AssurerEgalite(Math.pow(64.128,3), Puissance(64.128,3), PRECISION);
+        ok &= AssurerEgalite(Math.pow(3,-3), Puissance(3,-3), PRECISION);
+        System.out.println(ok);
     }
     /**
      * Tests pour la methode Racine
@@ -82,6 +60,14 @@ public class TestsFonctionReelles {
                 System.out.println("Echec du test Racine no " + ( noTest + 1 ) );
             }
         }
+    }
+    
+    /**
+     * TODO commenter le rôle de cette méthode (SRP)
+     * @param args non utilisé
+     */
+    public static void main(String[] args) {
+        TestPuissance();
     }
 
 }
